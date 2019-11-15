@@ -1,0 +1,66 @@
+$mm-black: #111; //https://ianstormtaylor.com/design-tip-never-use-black/
+
+html {
+    scroll-behavior: smooth 
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    color: #111;
+    line-height: 1.4;
+    box-sizing: border-box;
+    background-color: #222;
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+button > *
+, img {
+  pointer-events: none;
+}
+
+.mm__hero {
+    height: 100vh;
+}
+
+.mm__section {
+    background-color: blueviolet;
+    min-height: 500px;
+
+    // todo: remove
+    &:nth-child(2) {
+        background-color: pink;
+    }
+
+    &:nth-child(3) {
+        background-color: teal;
+    }
+    
+}
+
+.mm__container {
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: 768px) { 
+        max-width: 1020px;
+        margin: 0 auto;
+    }
+}
+
+.mm__logo {
+    border: solid 2px $mm-black;
+    width: 100px;
+    height: 80px;
+}
+
+.mm__nav {
+    border: solid 2px $mm-black;
+    width: 60px;
+    height: 60px;
+    background: none;
+}
