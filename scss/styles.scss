@@ -1,4 +1,5 @@
 $mm-black: #111; //https://ianstormtaylor.com/design-tip-never-use-black/
+$breakpoint-two-columns: 1020px;
 
 html {
     scroll-behavior: smooth 
@@ -21,11 +22,62 @@ button > *
   pointer-events: none;
 }
 
-.mm__hero {
+.hero {
     height: 100vh;
+    min-height: 670px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-two-columns) {
+        flex-direction: row;
+    }
+
+    &__logo {
+        position: absolute;
+        top: 2em;
+        left: 2em;
+    }
+
+    &__nav {
+        position: absolute;
+        top: 2em;
+        right: 2em;
+    }
+
+    &__img-container
+    {
+        background: red;
+        height: 45%;
+        width: 100%;
+        
+        @media (min-width: $breakpoint-two-columns) {
+            height: 90%;
+            width: 50%;
+        }
+    }
+
+    &__text-container
+    {
+        background: green;
+        height: 45%;
+        width: 100%;
+
+        @media (min-width: $breakpoint-two-columns) {
+            height: 90%;
+            width: 50%;
+        }
+    }
+
+    &__arrow-container
+    {
+        background: blue;
+        height: 10%;
+        width: 100%;
+    }
 }
 
-.mm__section {
+.section {
     background-color: blueviolet;
     min-height: 500px;
 
@@ -40,7 +92,7 @@ button > *
     
 }
 
-.mm__container {
+.container {
     width: 100%;
     padding: 2em;
     display: flex;
@@ -52,13 +104,13 @@ button > *
     }
 }
 
-.mm__logo {
+.logo {
     border: solid 2px $mm-black;
     width: 100px;
     height: 80px;
 }
 
-.mm__nav {
+.nav {
     border: solid 2px $mm-black;
     width: 60px;
     height: 60px;
