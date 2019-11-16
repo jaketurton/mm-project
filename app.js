@@ -63,19 +63,21 @@ const slides = document.querySelectorAll(".hero__slide");
 let currentSlide = 0;
 
 const right = () => {
-    console.log(currentSlide);
-    
     slides[currentSlide].classList.remove("hero__slide--visible");
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add("hero__slide--visible");
 }
 
 const left = () => {
-    console.log(currentSlide);
-
     slides[currentSlide].classList.remove("hero__slide--visible");
-    currentSlide = (currentSlide - 1) % slides.length;
-    slides[currentSlide].classList.add("hero__slide--visible");
+    
+    if (currentSlide > 0) {
+        currentSlide = (currentSlide - 1) % slides.length;
+    } else {
+        currentSlide = slides.length - 1;
+    }
+
+    slides[currentSlide].classList.add("hero__slide--visible")
 }
 
 // const slideInterval = setInterval(() => {
