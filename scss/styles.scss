@@ -1,4 +1,5 @@
 $mm-black: #111; //https://ianstormtaylor.com/design-tip-never-use-black/
+$mm-cyan: #20C1D5;
 $breakpoint-two-columns: 1020px;
 
 html {
@@ -6,8 +7,8 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Mono', monospace;
-    color: #111;
+    font-family: 'Lato', sans-serif;
+    color: $mm-black;
     line-height: 1.4;
     box-sizing: border-box;
     background-color: #222;
@@ -29,51 +30,131 @@ button > *
     flex-wrap: wrap;
     flex-direction: column;
 
-    @media (min-width: $breakpoint-two-columns) {
-        flex-direction: row;
+    &__slide {
+        height: 90vh;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        transform: translateX(100vw);
+        transition: 1s ease;
+
+        @media (min-width: $breakpoint-two-columns) {
+            flex-direction: row;
+        }
     }
 
-    &__logo {
+    &__logo-container {
         position: absolute;
         top: 2em;
         left: 2em;
     }
 
-    &__nav {
+    &__logo {
+        border: solid 2px $mm-black;
+        width: 100px;
+        height: 80px;
+    }
+
+    &__nav-container {
         position: absolute;
         top: 2em;
         right: 2em;
     }
 
+    &__nav-button {
+        border: solid 2px $mm-black;
+        width: 60px;
+        height: 60px;
+        background: none;
+    }
+
     &__img-container
     {
-        background: red;
-        height: 45%;
+        background-color: #fff;
+        height: 50%;
         width: 100%;
+        background-image: url('../img/hero.jpeg');
+        background-size: cover;
+        background-position: center;
         
         @media (min-width: $breakpoint-two-columns) {
-            height: 90%;
+            height: 100%;
             width: 50%;
+            order: 2;
+            background-position: 60%;
         }
     }
 
     &__text-container
     {
-        background: green;
-        height: 45%;
+        background: $mm-cyan;
+        height: 50%;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @media (min-width: $breakpoint-two-columns) {
-            height: 90%;
+            height: 100%;
             width: 50%;
+            order: 1;
+        }
+    }
+
+    &__text {
+        max-width: 400px;
+        padding: 0 2em;
+
+        @media (min-width: $breakpoint-two-columns) {
+            max-width: 300px;
+            padding: 0;
+        }
+    }
+
+    &__header {
+        color: #fff;
+        font-size: 1.9em;
+        margin-bottom: 0.4em;
+        line-height: 1.2;
+
+        @media (min-width: $breakpoint-two-columns) {
+            font-size: 3.5em;
         }
     }
 
     &__arrow-container
     {
-        background: blue;
+        background: #fff;
         height: 10%;
         width: 100%;
+        order: 3;
+        display: flex;
+        align-items: center;
+    }
+
+    &__arrow {
+        width: 65px;
+        height: 65px;
+        display: block;
+        margin: 0 auto;
+        background: none;
+        border: 0;
+
+        svg path {
+            stroke: $mm-cyan;
+            stroke-width: 8;
+            fill: transparent;
+        }
+    }
+}
+
+.paragraph {
+    font-size: 1em;
+    color: $mm-black;
+    
+    &--invert {
+        color: #fff;
     }
 }
 
@@ -83,7 +164,7 @@ button > *
 
     // todo: remove
     &:nth-child(2) {
-        background-color: pink;
+        background-color: #eee;
     }
 
     &:nth-child(3) {
@@ -102,17 +183,4 @@ button > *
         max-width: 1020px;
         margin: 0 auto;
     }
-}
-
-.logo {
-    border: solid 2px $mm-black;
-    width: 100px;
-    height: 80px;
-}
-
-.nav {
-    border: solid 2px $mm-black;
-    width: 60px;
-    height: 60px;
-    background: none;
 }

@@ -3,63 +3,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/reset.scss">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/styles.scss">
     <title>MM</title>
 </head>
 <body>
-
-    <!-- outer container hero -->
-        <!-- logo  --> 
-        <!-- navigation  -->
-
-        <!-- image container -->
-        <!-- text container -->
-        <!-- arrow container -->
-
     <section class="hero">
-            <div class="hero__logo">
-                <h1><img class="logo" src="#" alt="MM Event"></h1>
-            </div>
+        
+        <div class="hero__logo-container">
+            <h1><img class="hero__logo" src="#" alt="MM Event"></h1>
+        </div>
 
-            <div class="hero__nav">
-                <navigation>
-                    <button class="nav">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                        width="24" height="24"
-                        viewBox="0 0 24 24"
-                        style=" fill:#fff;"><path d="M 0 2 L 0 4 L 24 4 L 24 2 Z M 0 11 L 0 13 L 24 13 L 24 11 Z M 0 20 L 0 22 L 24 22 L 24 20 Z"></path></svg>
-                    </button>
-                </navigation>
-            </div>
+        <div class="hero__nav-container">
+            <navigation>
+                <button class="hero__nav-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="24" height="24"
+                    viewBox="0 0 24 24"
+                    style="fill:#fff;"><path d="M 0 2 L 0 4 L 24 4 L 24 2 Z M 0 11 L 0 13 L 24 13 L 24 11 Z M 0 20 L 0 22 L 24 22 L 24 20 Z"></path></svg>
+                </button>
+            </navigation>
+        </div>
 
-            <div class="hero__img-container">
-
-            </div>
+        <div class="hero__slide">
+            <div class="hero__img-container"></div>
 
             <div class="hero__text-container">
-                
+                <div class="hero__text">
+                    <h1 class="hero__header">Worldwide leadership conference</h1>
+                    <p class="paragraph paragraph--invert">It's like being inside an enormous Fox's Glacier Mint. Which, again, to me is a bonus.</p>
+                </div>
             </div>
+        </div>
 
-            <div class="hero__arrow-container">
-                
+        <div class="hero__slide">
+                <div class="hero__img-container"></div>
+    
+                <div class="hero__text-container">
+                    <div class="hero__text">
+                        <h1 class="hero__header">Slide 2</h1>
+                        <p class="paragraph paragraph--invert">It's like being inside an enormous Fox's Glacier Mint. Which, again, to me is a bonus.</p>
+                    </div>
+                </div>
+        </div>
+
+        <div class="hero__slide">
+            <div class="hero__img-container"></div>
+
+            <div class="hero__text-container">
+                <div class="hero__text">
+                    <h1 class="hero__header">Slide 3</h1>
+                    <p class="paragraph paragraph--invert">It's like being inside an enormous Fox's Glacier Mint. Which, again, to me is a bonus.</p>
+                </div>
             </div>
+        </div>
 
+        <div class="hero__arrow-container">
+            <button class="hero__arrow js-arrow">
+                <svg viewBox="12.5 12.5 75 75">
+                    <path d="M25,45L50,65L75,45"></path>
+                </svg>
+            </button>
+        </div>
+        
     </section>
 
-    <section class="section">
+    <section id="about" class="section">
         <div class="container">
            
         </div>
     </section>
 
     <section class="section">
-            <div class="container">
-               
-            </div>
+        <div class="container">
+            
+        </div>
     </section>
-
+    
     <script src="./index.js"></script>
     <script src="./app.js"></script>
 </body>
