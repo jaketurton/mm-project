@@ -11,7 +11,7 @@ body {
     color: $mm-black;
     line-height: 1.4;
     box-sizing: border-box;
-    background-color: #222;
+    background-color: #fff;
 
     * {
         box-sizing: border-box;
@@ -36,8 +36,19 @@ button > *
         flex-wrap: wrap;
         flex-direction: column;
         width: 100%;
-        transform: translateX(100vw);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         transition: 1s ease;
+        z-index: 1;
+        opacity: 0;
+
+        &--visible {
+            opacity: 1;
+            z-index: 2;
+        }
 
         @media (min-width: $breakpoint-two-columns) {
             flex-direction: row;
@@ -48,6 +59,7 @@ button > *
         position: absolute;
         top: 2em;
         left: 2em;
+        z-index: 3;
     }
 
     &__logo {
@@ -60,6 +72,7 @@ button > *
         position: absolute;
         top: 2em;
         right: 2em;
+        z-index: 3;
     }
 
     &__nav-button {
@@ -74,7 +87,6 @@ button > *
         background-color: #fff;
         height: 50%;
         width: 100%;
-        background-image: url('../img/hero.jpeg');
         background-size: cover;
         background-position: center;
         
@@ -131,6 +143,9 @@ button > *
         order: 3;
         display: flex;
         align-items: center;
+        position: absolute;
+        bottom:0;
+        z-index: 3;
     }
 
     &__arrow {
