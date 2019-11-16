@@ -30,6 +30,52 @@ button > *
     flex-wrap: wrap;
     flex-direction: column;
 
+    &__prev,
+    &__next {
+        z-index: 3;
+        position: absolute;
+        top: 25%;
+
+        @media (min-width: $breakpoint-two-columns) {
+            top: 40%;
+        }
+
+        * {
+            background: none;
+            border: 0;
+        }
+
+        button {
+            padding: 1em;
+            height: 80px;
+            width: 80px;
+        }
+
+        svg {
+            width: 100%;
+            fill: white;
+            height: 45px;
+            width: 45px;
+        }
+    }
+
+    &__prev {
+        left: 0;
+        transform: rotate(180deg);
+        
+        @media (min-width: $breakpoint-two-columns) {
+            left: 1em;
+        }
+    }
+
+    &__next {
+        right: 0;
+
+        @media (min-width: $breakpoint-two-columns) {
+            right: 1em;
+        }
+    }
+
     &__slide {
         height: 90vh;
         display: flex;
@@ -41,7 +87,7 @@ button > *
         left: 0;
         bottom: 0;
         right: 0;
-        transition: 1s ease;
+        transition: opacity 1s ease;
         z-index: 1;
         opacity: 0;
 

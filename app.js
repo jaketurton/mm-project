@@ -12,6 +12,14 @@ document.addEventListener('click', e => {
     if (e.target.className.includes('js-arrow')) {
         about.scrollIntoView();;
     }
+
+    if (e.target.className.includes('next')) {
+        right();
+    }
+
+    if (e.target.className.includes('prev')) {
+        left();
+    }
 });
 
 const sliderData = [
@@ -53,9 +61,26 @@ for (let i = 0; i < sliderData.length; i++) {
 
 const slides = document.querySelectorAll(".hero__slide");
 let currentSlide = 0;
-const slideInterval = setInterval(() => {
-slides[currentSlide].classList.remove("hero__slide--visible");
-currentSlide = (currentSlide + 1) % slides.length;
-slides[currentSlide].classList.add("hero__slide--visible");
-}, 2000);
+
+const right = () => {
+    console.log(currentSlide);
+    
+    slides[currentSlide].classList.remove("hero__slide--visible");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("hero__slide--visible");
+}
+
+const left = () => {
+    console.log(currentSlide);
+
+    slides[currentSlide].classList.remove("hero__slide--visible");
+    currentSlide = (currentSlide - 1) % slides.length;
+    slides[currentSlide].classList.add("hero__slide--visible");
+}
+
+// const slideInterval = setInterval(() => {
+// slides[currentSlide].classList.remove("hero__slide--visible");
+// currentSlide = (currentSlide + 1) % slides.length;
+// slides[currentSlide].classList.add("hero__slide--visible");
+// }, 2000);
   
