@@ -1,6 +1,8 @@
-const body = document.querySelector('body');
+let hero1URL = require("./img/hero.jpg");
+let hero2URL = require("./img/hero2.jpg");
+let hero3URL = require("./img/hero3.jpg");
+const html = document.querySelector('html');
 const about = document.querySelector('#About');
-const arrow = document.querySelector('.js-arrow');
 const aboutContent = document.querySelectorAll(".about__content");
 
 // Event delegation. Event listener analyzes bubbled events to find a match on child elements. Performance++ 
@@ -13,14 +15,17 @@ document.addEventListener('click', e => {
 
     if (e.target.className.includes('js-nav')) {
         e.path[2].classList.toggle('hero__nav-container--modal');
+        html.classList.add('noscroll');
     }
 
     if (e.target.className.includes('hero__nav-container')) {
         e.target.classList.toggle('hero__nav-container--modal');
+        html.classList.remove('noscroll');
     }
     
     if (e.target.className.includes('js-arrow')) {
         about.scrollIntoView();
+        aboutContent[0].classList.add('about__content--inview');
     }
 
     if (e.target.className.includes('next')) {
@@ -40,23 +45,27 @@ window.addEventListener('resize', e => {
         if (heroContainer.classList.contains('hero__nav-container--modal')) {
             heroContainer.classList.remove('hero__nav-container--modal');
         }
+
+        if (html.classList.contains('noscroll')) {
+            html.classList.remove('noscroll')
+        }
     }
 })
 
 // Hero content
 const heroData = [
     {
-        img: "https://i.ibb.co/GsLD1BZ/hero.jpg",
+        img: hero1URL,
         header: "Worldwide leadership conference",
         paragraph: "It's like being inside an enormous Fox's Glacier Mint. Which, again, to me is a bonus."
     },
     {
-        img: "https://i.imgur.com/KUa0fUD.jpg",
+        img: hero2URL,
         header: "Slide 2",
         paragraph: "Swallow is a detective who tackles vandalism. Bit of a maverick, not afraid to break the law if he thinks it’s necessary."
     },
     {
-        img: "https://i.imgur.com/avPG1hl.jpg",
+        img: hero3URL,
         header: "Slide 3",
         paragraph: "He’s not a criminal, but he will, perhaps, travel 80mph on the motorway if he, for example, he wants to get somewhere quickly…"
     }
@@ -105,12 +114,14 @@ const left = () => {
     slides[currentSlide].classList.add("hero__slide--visible")
 }
 
-var observer = new IntersectionObserver(function(entries) {
-	// isIntersecting is true when element and viewport are overlapping
-	// isIntersecting is false when element and viewport don't overlap
-	if(entries[0].isIntersecting === true)
-		console.log(this);
-}, { threshold: [0.10] });
+observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.intersectionRatio > 0) {
+            entry.target.classList.add('about__content--inview');
+        }
+    });
+});
 
-observer.observe(aboutContent[0]);
-observer.observe(aboutContent[1]);
+aboutContent.forEach(content => {
+    observer.observe(content);
+});

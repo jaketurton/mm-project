@@ -3,7 +3,13 @@ $mm-cyan: #20C1D5;
 $breakpoint-two-columns: 1020px;
 
 html {
-    scroll-behavior: smooth 
+    scroll-behavior: smooth;
+    
+    .noscroll {
+        overflow: hidden;
+        margin: 0;
+        height: 100%;
+    }
 }
 
 a {
@@ -109,7 +115,7 @@ button > *
         position: absolute;
         top: 2em;
         left: 2em;
-        z-index: 3;
+        z-index: 10;
     }
 
     &__logo {
@@ -147,7 +153,7 @@ button > *
                 align-content: center;
                 justify-content: center;
                 text-align: center;
-                margin-top: 20%;
+                margin-top: 40%;
                 opacity: 1;
                 transition: opacity 0.5s ease;
             }
@@ -302,6 +308,7 @@ button > *
 
     &__content {
         display: block;
+        opacity: 0;
 
         @media (min-width: $breakpoint-two-columns) {
             display: flex;
@@ -309,6 +316,11 @@ button > *
             &:first-child {
                 margin-bottom: 3em;
             }
+        }
+
+        &--inview {
+            opacity: 1;
+            transition: opacity 1s ease;
         }
 
         &--invert {
@@ -326,19 +338,26 @@ button > *
         width: 100vw;
         height: auto;
         margin: 2em 0 2em -2em;
+        max-width: 700px;
+        display: block;
+        
+        @media (min-width: 720px) {
+            margin: 2em auto 2em auto;
+        }
     
         @media (min-width: $breakpoint-two-columns) { 
             margin: 0;
             width: 100%;
             height: 100%;
-        }
+            
 
-        &--right {
-            margin-right: -10%;
-        }
-
-        &--left {
-            margin-left: -10%;
+            &--right {
+                margin-right: -20%;
+            }
+    
+            &--left {
+                margin-left: -20%;
+            }
         }
     }
 }
