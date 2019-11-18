@@ -15,12 +15,24 @@ document.addEventListener('click', e => {
 
     if (e.target.className.includes('js-nav')) {
         e.path[2].classList.toggle('hero__nav-container--modal');
+        window.scrollTo(0, 0);
         html.classList.add('noscroll');
     }
 
     if (e.target.className.includes('hero__nav-container')) {
         e.target.classList.toggle('hero__nav-container--modal');
         html.classList.remove('noscroll');
+    }
+
+    if (e.target.dataset.indicator) {
+        console.log(e.target.dataset.indicator);
+        console.log(currentSlide);
+
+        if (e.target.dataset.indicator > currentSlide) {
+            right();
+        } else if (e.target.dataset.indicator < currentSlide) {
+            left();
+        }
     }
     
     if (e.target.className.includes('js-arrow')) {
@@ -77,7 +89,7 @@ for (let i = 0; i < heroData.length; i++) {
     const hero = document.querySelector(".hero");
     const {img, header, paragraph} = heroData[i];
     const slideData = `
-        <div class="hero__slide ${i == 0 ? 'hero__slide--visible' : ''}"data-slide="slide-${i}">
+        <div class="hero__slide ${i == 0 ? 'hero__slide--visible' : ''}">
             <div class="hero__img-container" style="background-image:url('${img}')"></div>
 
             <div class="hero__text-container">
@@ -85,6 +97,12 @@ for (let i = 0; i < heroData.length; i++) {
                     <h1 class="hero__header">${header}</h1>
                     <p class="paragraph paragraph--invert">${paragraph}</p>
                 </div>
+
+                <ul class="hero__indicators">
+                    <li><button data-indicator="0" class="hero__indicator ${i == 0 ? 'hero__indicator--active' : ''}">1</button</li>
+                    <li><button data-indicator="1" class="hero__indicator ${i == 1 ? 'hero__indicator--active' : ''}">2</button</li>
+                    <li><button data-indicator="2" class="hero__indicator ${i == 2 ? 'hero__indicator--active' : ''}">3</button</li>
+                </ul>
             </div>
         </div>
     `;

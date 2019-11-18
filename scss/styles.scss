@@ -5,7 +5,7 @@ $breakpoint-two-columns: 1020px;
 html {
     scroll-behavior: smooth;
     
-    .noscroll {
+    &.noscroll {
         overflow: hidden;
         margin: 0;
         height: 100%;
@@ -39,6 +39,27 @@ button > *
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+
+    &__indicators {
+        z-index: 3;
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        top: 75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__indicator {
+        font-size: 2em;
+        color: #fff;
+
+        &--active {
+            font-weight: bold;
+        }
+    }
 
     &__prev,
     &__next {
@@ -208,6 +229,7 @@ button > *
         background: $mm-cyan;
         height: 50%;
         width: 100%;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
