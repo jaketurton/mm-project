@@ -14,7 +14,7 @@ document.addEventListener('click', e => {
     }
 
     if (e.target.className.includes('js-nav')) {
-        e.path[2].classList.toggle('hero__nav-container--modal');
+        e.target.parentNode.parentNode.classList.toggle('hero__nav-container--modal');
         window.scrollTo(0, 0);
         html.classList.add('noscroll');
     }
