@@ -45,7 +45,7 @@ window.addEventListener('resize', e => {
 // Hero content
 const heroData = [
     {
-        img: "https://i.imgur.com/avPG1hl.jpg",
+        img: "https://i.ibb.co/GsLD1BZ/hero.jpg",
         header: "Worldwide leadership conference",
         paragraph: "It's like being inside an enormous Fox's Glacier Mint. Which, again, to me is a bonus."
     },
@@ -55,7 +55,7 @@ const heroData = [
         paragraph: "Swallow is a detective who tackles vandalism. Bit of a maverick, not afraid to break the law if he thinks it’s necessary."
     },
     {
-        img: "https://i.imgur.com/YcDB1hY.jpg",
+        img: "https://i.imgur.com/avPG1hl.jpg",
         header: "Slide 3",
         paragraph: "He’s not a criminal, but he will, perhaps, travel 80mph on the motorway if he, for example, he wants to get somewhere quickly…"
     }

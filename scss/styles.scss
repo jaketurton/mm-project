@@ -113,7 +113,6 @@ button > *
     }
 
     &__logo {
-        border: solid 2px $mm-black;
         width: 100px;
         height: 80px;
     }
@@ -169,6 +168,8 @@ button > *
     &__nav-list {
         display: none;
         opacity: 0;
+        color: #fff;
+        font-weight: bold;
 
         @media (min-width: $breakpoint-two-columns) {
             display: flex;
@@ -186,7 +187,7 @@ button > *
         height: 50%;
         width: 100%;
         background-size: cover;
-        background-position: center;
+        background-position: 30%;
         
         @media (min-width: $breakpoint-two-columns) {
             height: 100%;
@@ -253,18 +254,23 @@ button > *
         margin: 0 auto;
         background: none;
         border: 0;
+    }
+}
 
-        svg path {
-            stroke: $mm-cyan;
-            stroke-width: 8;
-            fill: transparent;
-        }
+.container {
+    width: 100%;
+    padding: 2em;
+
+    @media (min-width: $breakpoint-two-columns) { 
+        max-width: 1020px;
+        margin: 0 auto;
     }
 }
 
 .paragraph {
     font-size: 1em;
     color: $mm-black;
+    margin-bottom: 0.5em;
     
     &--invert {
         color: #fff;
@@ -276,16 +282,59 @@ button > *
         color: $mm-cyan;
         font-weight: bold;
         font-size: 1.8em;
+        margin-bottom: 0.5em;
     }
     &__secondary {
         color: $mm-black;
         font-weight: normal;
         font-size: 1.4em;
+        margin-bottom: 0.5em;
+    }
+}
+
+.about {
+    &__content {
+        display: block;
+
+        @media (min-width: $breakpoint-two-columns) {
+            display: flex;
+        }
+
+        &--invert {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &__text {
+        @media (min-width: $breakpoint-two-columns) {
+            padding: 2em;
+        }
+    }
+
+    &__image {
+        width: 100vw;
+        height: auto;
+        margin: 2em 0 2em -2em;
+    
+        @media (min-width: $breakpoint-two-columns) { 
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        &--right {
+            margin-right: -10%;
+        }
+
+        &--left {
+            margin-left: -10%;
+        }
     }
 }
 
 .section {
     background-color: blueviolet;
+    overflow-x: hidden;
 
     // todo: remove
     &:nth-child(2) {
@@ -298,14 +347,3 @@ button > *
     
 }
 
-// .container {
-//     width: 100%;
-//     padding: 2em;
-//     display: flex;
-//     justify-content: space-between;
-
-//     @media (min-width: 768px) { 
-//         max-width: 1020px;
-//         margin: 0 auto;
-//     }
-// }
