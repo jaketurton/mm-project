@@ -1,6 +1,7 @@
 const body = document.querySelector('body');
-const about = document.querySelector('#about');
+const about = document.querySelector('#About');
 const arrow = document.querySelector('.js-arrow');
+const aboutContent = document.querySelectorAll(".about__content");
 
 // Event delegation. Event listener analyzes bubbled events to find a match on child elements. Performance++ 
 document.addEventListener('click', e => {
@@ -103,3 +104,13 @@ const left = () => {
 
     slides[currentSlide].classList.add("hero__slide--visible")
 }
+
+var observer = new IntersectionObserver(function(entries) {
+	// isIntersecting is true when element and viewport are overlapping
+	// isIntersecting is false when element and viewport don't overlap
+	if(entries[0].isIntersecting === true)
+		console.log(this);
+}, { threshold: [0.10] });
+
+observer.observe(aboutContent[0]);
+observer.observe(aboutContent[1]);

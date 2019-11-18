@@ -293,11 +293,22 @@ button > *
 }
 
 .about {
+    background-color: #efefef;
+    overflow-x: hidden;
+    
+    @media (min-width: $breakpoint-two-columns) {
+        background-color: #fff;
+    }
+
     &__content {
         display: block;
 
         @media (min-width: $breakpoint-two-columns) {
             display: flex;
+
+            &:first-child {
+                margin-bottom: 3em;
+            }
         }
 
         &--invert {
@@ -332,18 +343,46 @@ button > *
     }
 }
 
-.section {
-    background-color: blueviolet;
-    overflow-x: hidden;
+.footer {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    font-weight: bold;
 
-    // todo: remove
-    &:nth-child(2) {
-        background-color: #eee;
+    @media (min-width: $breakpoint-two-columns) {
+        display: flex;
     }
 
-    &:nth-child(3) {
-        background-color: teal;
+    &__copyright-container {
+        margin-bottom: 0.5em;
+
+        @media (min-width: $breakpoint-two-columns) {
+            position: absolute;
+            margin-bottom: 0;
+        }
     }
-    
+
+    &__links-container {
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        @media (min-width: $breakpoint-two-columns) {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            li {
+                margin-right: 1em;
+                margin-bottom: 0;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &__link {
+        color: $mm-cyan;
+    }
 }
-
