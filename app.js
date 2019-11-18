@@ -2,6 +2,7 @@ const body = document.querySelector('body');
 const about = document.querySelector('#about');
 const arrow = document.querySelector('.js-arrow');
 
+// Event delegation, event listener is added to one parent. That event listener analyzes bubbled events to find a match on child elements. Performance ++ 
 document.addEventListener('click', e => {
     e.preventDefault();
     
@@ -10,7 +11,7 @@ document.addEventListener('click', e => {
     }
     
     if (e.target.className.includes('js-arrow')) {
-        about.scrollIntoView();;
+        about.scrollIntoView();
     }
 
     if (e.target.className.includes('next')) {
@@ -22,7 +23,8 @@ document.addEventListener('click', e => {
     }
 });
 
-const sliderData = [
+// Hero content
+const heroData = [
     {
         img: "https://i.imgur.com/avPG1hl.jpg",
         header: "Worldwide leadership conference",
@@ -40,10 +42,11 @@ const sliderData = [
     }
 
 ];
-  
-for (let i = 0; i < sliderData.length; i++) {
+
+// Generate hero markup
+for (let i = 0; i < heroData.length; i++) {
     const hero = document.querySelector(".hero");
-    const {img, header, paragraph} = sliderData[i];
+    const {img, header, paragraph} = heroData[i];
     const slideData = `
         <div class="hero__slide ${i == 0 ? 'hero__slide--visible' : ''}"data-slide="slide-${i}">
             <div class="hero__img-container" style="background-image:url('${img}')"></div>
@@ -79,10 +82,3 @@ const left = () => {
 
     slides[currentSlide].classList.add("hero__slide--visible")
 }
-
-// const slideInterval = setInterval(() => {
-// slides[currentSlide].classList.remove("hero__slide--visible");
-// currentSlide = (currentSlide + 1) % slides.length;
-// slides[currentSlide].classList.add("hero__slide--visible");
-// }, 2000);
-  
