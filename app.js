@@ -25,9 +25,6 @@ document.addEventListener('click', e => {
     }
 
     if (e.target.dataset.indicator) {
-        console.log(e.target.dataset.indicator);
-        console.log(currentSlide);
-
         if (e.target.dataset.indicator > currentSlide) {
             right();
         } else if (e.target.dataset.indicator < currentSlide) {
@@ -99,9 +96,9 @@ for (let i = 0; i < heroData.length; i++) {
                 </div>
 
                 <ul class="hero__indicators">
-                    <li><button data-indicator="0" class="hero__indicator ${i == 0 ? 'hero__indicator--active' : ''}">1</button</li>
-                    <li><button data-indicator="1" class="hero__indicator ${i == 1 ? 'hero__indicator--active' : ''}">2</button</li>
-                    <li><button data-indicator="2" class="hero__indicator ${i == 2 ? 'hero__indicator--active' : ''}">3</button</li>
+                    <li><button data-indicator="0" class="hero__indicator ${i == 0 ? 'hero__indicator--active' : ''}">_</button</li>
+                    <li><button data-indicator="1" class="hero__indicator ${i == 1 ? 'hero__indicator--active' : ''}">_</button</li>
+                    <li><button data-indicator="2" class="hero__indicator ${i == 2 ? 'hero__indicator--active' : ''}">_</button</li>
                 </ul>
             </div>
         </div>

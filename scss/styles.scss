@@ -53,11 +53,14 @@ button > *
     }
 
     &__indicator {
-        font-size: 2em;
+        font-size: 3em;
         color: #fff;
+        background: none;
+        border: none;
+        font-weight: 100;
 
         &--active {
-            font-weight: bold;
+            font-weight: 900;
         }
     }
 
