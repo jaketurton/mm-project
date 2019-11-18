@@ -9,6 +9,14 @@ document.addEventListener('click', e => {
     if (e.target.nodeName == "A") {
         window.open(e.target.href, '_blank');
     }
+
+    if (e.target.className.includes('js-nav')) {
+        e.path[2].classList.toggle('hero__nav-container--modal');
+    }
+
+    if (e.target.className.includes('hero__nav-container')) {
+        e.target.classList.toggle('hero__nav-container--modal');
+    }
     
     if (e.target.className.includes('js-arrow')) {
         about.scrollIntoView();
@@ -22,6 +30,16 @@ document.addEventListener('click', e => {
         left();
     }
 });
+
+window.addEventListener('resize', e => {
+    if (window.innerWidth >= 768 ) {
+        let heroContainer = document.querySelector('.hero__nav-container');
+
+        if (heroContainer.classList.contains('hero__nav-container--modal')) {
+            heroContainer.classList.remove('hero__nav-container--modal');
+        }
+    }
+})
 
 // Hero content
 const heroData = [
