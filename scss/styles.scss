@@ -156,7 +156,7 @@ button > *
     }
 
     &__nav-button {
-        border: solid 2px $mm-black;
+        border: 0;
         width: 60px;
         height: 60px;
         background: none;
@@ -286,14 +286,14 @@ button > *
     
 }
 
-.container {
-    width: 100%;
-    padding: 2em;
-    display: flex;
-    justify-content: space-between;
+// .container {
+//     width: 100%;
+//     padding: 2em;
+//     display: flex;
+//     justify-content: space-between;
 
-    @media (min-width: 768px) { 
-        max-width: 1020px;
-        margin: 0 auto;
-    }
-}
+//     @media (min-width: 768px) { 
+//         max-width: 1020px;
+//         margin: 0 auto;
+//     }
+// }

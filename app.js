@@ -2,7 +2,7 @@ const body = document.querySelector('body');
 const about = document.querySelector('#about');
 const arrow = document.querySelector('.js-arrow');
 
-// Event delegation, event listener is added to one parent. That event listener analyzes bubbled events to find a match on child elements. Performance ++ 
+// Event delegation. Event listener analyzes bubbled events to find a match on child elements. Performance++ 
 document.addEventListener('click', e => {
     e.preventDefault();
     
@@ -31,6 +31,7 @@ document.addEventListener('click', e => {
     }
 });
 
+// Remove modal if active on larger screen
 window.addEventListener('resize', e => {
     if (window.innerWidth >= 768 ) {
         let heroContainer = document.querySelector('.hero__nav-container');
@@ -83,12 +84,14 @@ for (let i = 0; i < heroData.length; i++) {
 const slides = document.querySelectorAll(".hero__slide");
 let currentSlide = 0;
 
+// Move hero slide right
 const right = () => {
     slides[currentSlide].classList.remove("hero__slide--visible");
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add("hero__slide--visible");
 }
 
+// Move hero slide left
 const left = () => {
     slides[currentSlide].classList.remove("hero__slide--visible");
     
