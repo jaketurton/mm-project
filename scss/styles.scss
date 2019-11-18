@@ -360,6 +360,7 @@ button > *
     &__image {
         width: 100vw;
         height: auto;
+        height: intrinsic;
         margin: 2em 0 2em -2em;
         max-width: 700px;
         display: block;
