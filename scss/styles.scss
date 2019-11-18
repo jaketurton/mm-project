@@ -271,9 +271,21 @@ button > *
     }
 }
 
+.header {
+    &__primary {
+        color: $mm-cyan;
+        font-weight: bold;
+        font-size: 1.8em;
+    }
+    &__secondary {
+        color: $mm-black;
+        font-weight: normal;
+        font-size: 1.4em;
+    }
+}
+
 .section {
     background-color: blueviolet;
-    min-height: 500px;
 
     // todo: remove
     &:nth-child(2) {
